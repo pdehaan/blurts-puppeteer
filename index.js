@@ -1,7 +1,7 @@
 const path = require("path");
 const meow = require("meow");
 const puppeteer = require("puppeteer");
-const breaches = require("./breaches.json");
+const breaches = require("./breaches.json"); // .slice(0, 4);
 
 const SERVERS = new Map();
 SERVERS.set("local", "http://localhost:6060");
@@ -53,7 +53,10 @@ async function main(flags) {
 
     console.log(`  - ${breachUrl}`);
     await page.goto(breachUrl);
-    await page.screenshot({ path: shotPath });
+
+    const elementHandle = await page.$('#banner-left');
+    await elementHandle.screenshot({ path: shotPath });
+    // await page.screenshot({ path: shotPath });
   }
 
   await browser.close();
