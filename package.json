@@ -1,0 +1,22 @@
+{
+  "name": "blurts-puppeteer",
+  "version": "1.0.0",
+  "author": "Moe Zilla",
+  "bugs": {
+    "url": "https://github.com/pdehaan/blurts-puppeteer/issues"
+  },
+  "homepage": "https://github.com/pdehaan/blurts-puppeteer#readme",
+  "keywords": [],
+  "license": "MPL-2.0",
+  "main": "index.js",
+  "repository": "pdehaan/blurts-puppeteer",
+  "scripts": {
+    "start": "node index",
+    "posttest": "npx imagemin-cli shots/* --out-dir=shots",
+    "test": "node index"
+  },
+  "dependencies": {
+    "puppeteer": "1.5.0",
+    "meow": "5.0.0"
+  }
+}
