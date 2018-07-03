@@ -16,7 +16,8 @@
     "test": "node index"
   },
   "dependencies": {
-    "puppeteer": "1.5.0",
-    "meow": "5.0.0"
+    "blurts-addon": "github:mozilla/blurts-addon",
+    "meow": "5.0.0",
+    "puppeteer": "1.5.0"
   }
 }

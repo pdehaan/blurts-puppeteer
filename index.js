@@ -1,7 +1,7 @@
 const path = require("path");
 const meow = require("meow");
 const puppeteer = require("puppeteer");
-const breaches = require("./breaches.json"); // .slice(0, 4);
+const breaches = require("blurts-addon/src/breaches.json");
 
 const SERVERS = new Map();
 SERVERS.set("local", "http://localhost:6060");
@@ -47,9 +47,8 @@ async function main(flags) {
   console.log(`Scraping ${serverUrl} breaches...`);
   for (let idx = 0; idx < breaches.length; idx += 1) {
     const breach = breaches[idx];
-    const [slug, ] = breach.LogoFilename.split(".");
-    const breachUrl = `${serverUrl}/?breach=${slug}`;
-    const shotPath = path.join(__dirname, "shots", `${slug}.png`);
+    const breachUrl = `${serverUrl}/?breach=${breach.Name}`;
+    const shotPath = path.join(__dirname, "shots", `${breach.Name}.png`);
 
     console.log(`  - ${breachUrl}`);
     await page.goto(breachUrl);
